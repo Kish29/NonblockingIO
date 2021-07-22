@@ -7,6 +7,7 @@
 #ifndef EPOLLLEARN_EPOLL_H
 #define EPOLLLEARN_EPOLL_H
 
+#include "unistd.h"
 #include "vector"
 #include "sys/epoll.h"
 #include "fcntl.h"
@@ -27,6 +28,10 @@ public:
         if (perror_) {
             check_print(res, "fcntl: set O_NONBLOCK failed!");
         }
+    }
+
+    ~Epoll() {
+        close(epollfd_);
     }
 
     // fd不能是普通文件的描述符或者目录的描述符
