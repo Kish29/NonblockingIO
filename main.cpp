@@ -60,8 +60,8 @@ char *event_str(uint32_t events) {
 }
 
 void o_async_io() {
-    async_sigio asyncSigIo(targetfd, sigio_handler, true);
-    asyncSigIo.enable();
+    async_sigio sigio(targetfd, sigio_handler, true);
+    sigio.enable();
     cbreak_term(targetfd, true);
     while (!finish) {
         printf("do other things before io comes in\n");
