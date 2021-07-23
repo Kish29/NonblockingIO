@@ -7,7 +7,7 @@
 #include "epoll_wrapper.h"
 
 
-int epoll_wrapper::add_event(int fd, int event, epoll_wrapper::EpollEventCallback callback) {
+int epoll_wrapper::add_event(int fd, int event, epoll_wrapper::epoll_event_callback callback) {
     struct epoll_event ev{};
     ev.events = event | EPOLLET;
     ev.data.fd = fd;
