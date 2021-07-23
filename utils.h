@@ -7,7 +7,7 @@
 #ifndef EPOLLLEARN_UTILS_H
 #define EPOLLLEARN_UTILS_H
 
-#include "ErrorMap.h"
+#include "error_map.h"
 
 void check_print_abt(int res, const char *msg, bool line = true);
 

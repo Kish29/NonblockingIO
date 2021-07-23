@@ -1,10 +1,10 @@
-#include "AsyncSigIO.h"
-#include "ErrorMap.h"
-#include "CBreakTerm.h"
+#include "async_sigio.h"
+#include "error_map.h"
+#include "cbreak_term.h"
 #include "fcntl.h"
 #include "sys/epoll.h"
-#include "Epoll.h"
-#include "Utils.h"
+#include "epoll_wrapper.h"
+#include "utils.h"
 #include "cstdio"
 #include "cstring"
 #include "cstdlib"
@@ -60,9 +60,9 @@ char *event_str(uint32_t events) {
 }
 
 void o_async_io() {
-    AsyncSigIO asyncSigIo(targetfd, sigio_handler, true);
+    async_sigio asyncSigIo(targetfd, sigio_handler, true);
     asyncSigIo.enable();
-    CBreakTerm(targetfd, true);
+    cbreak_term(targetfd, true);
     while (!finish) {
         printf("do other things before io comes in\n");
         sleep(2);
@@ -87,10 +87,10 @@ void read_event(const struct epoll_event &curr_ev) {
 
 void *thread_poll(void *arg) {
     printf("在子线程中轮询...每2s轮询一次\n");
-    Epoll epoll = *((Epoll *) arg);
+    epoll_wrapper epoll = *((epoll_wrapper *) arg);
     while (open_fd > 0) {
         printf("epoll轮询...\n");
-        epoll.poll(0);
+        epoll.poll_event(0);
         sleep(2);
     }
     printf("open_fd all closed!\n");
@@ -102,7 +102,7 @@ void epoll_pipe(int argc, char *argv[]) {
         fprintf(stderr, "usage: %s file\n", argv[0]);
         return;
     }
-    Epoll epoll;
+    epoll_wrapper epoll;
     int epoll_fd = epoll_create1(O_CLOEXEC);
     check_print_abt(epoll_fd, "epoll_create failed!");
 
@@ -112,11 +112,11 @@ void epoll_pipe(int argc, char *argv[]) {
         check_print_abt(fd, "open file descriptor failed!");
         printf("open %s on %d\n", argv[i], fd);
         // 有数据输入，边缘触发
-        epoll.addEvent(fd, EPOLLIN | EPOLLET, read_event);
+        epoll.add_event(fd, EPOLLIN | EPOLLET, read_event);
     }
     open_fd = argc - 1;
     pthread_t t{};
-    pthread_create(&t, nullptr, thread_poll, (Epoll *) &epoll);
+    pthread_create(&t, nullptr, thread_poll, (epoll_wrapper *) &epoll);
     pthread_join(t, nullptr);
 }
 

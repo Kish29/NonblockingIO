@@ -1,7 +1,7 @@
 # 1、wildcard : 扩展通配符
 # 2、notdir ： 去除路径
 # 3、patsubst ：替换通配符
-MAIN_SOURCE := Main.cpp
+MAIN_SOURCE := main.cpp
 # 获取所有.cpp文件
 SOURCE		:= $(wildcard *.cpp tests/*.cpp)
 # 过滤掉Main.o
@@ -11,7 +11,7 @@ override SOURCE := $(filter-out $(MAIN_SOURCE), $(SOURCE))
 # 将所有的.cpp编译成.o文件
 OBJECTS 	:= $(patsubst %.cpp, %.o, $(SOURCE))
 
-TARGET		:= EpollLearn
+TARGET		:= epoll_learn
 #TEST_TARGET	:= Test1
 CXX			:= g++
 LIBS		:= -lpthread
@@ -23,7 +23,7 @@ CXXFLAGS	:= $(CFLAGS)
 all	: $(TARGET)
 
 
-$(TARGET) : $(OBJECTS) Main.o
+$(TARGET) : $(OBJECTS) main.o
 	$(CXX) $(CXXFLAGS) -o $@ $^ $(LDFLAGS) $(LIBS)
 
 

@@ -4,20 +4,20 @@
 // $desc
 //
 
-#ifndef EPOLLLEARN_ERRORMAP_H
-#define EPOLLLEARN_ERRORMAP_H
+#ifndef EPOLLLEARN_ERROR_MAP_H
+#define EPOLLLEARN_ERROR_MAP_H
 
 #include "mutex"
 #include "map"
 #include "string"
 
-class ErrorMap {
+class error_map {
 public:
-    static ErrorMap *instance() {
+    static error_map *instance() {
         if (instance_ == nullptr) {
             std::unique_lock<std::mutex> lck(mutex_);
             if (instance_ == nullptr) {
-                instance_ = new ErrorMap;
+                instance_ = new error_map;
             }
             lck.unlock();
         }
@@ -28,18 +28,18 @@ public:
         return error_map_;
     }
 
-    ErrorMap(const ErrorMap &other) = delete;
+    error_map(const error_map &other) = delete;
 
-    ErrorMap &operator=(const ErrorMap &other) = delete;
+    error_map &operator=(const error_map &other) = delete;
 
 private:
-    ErrorMap();
+    error_map();
 
     static std::mutex mutex_;
-    static ErrorMap *instance_;
+    static error_map *instance_;
     std::map<int, std::string> error_map_{};
 };
 
-#define error_map ErrorMap::instance()->get_error_map()
+#define errmap error_map::instance()->get_error_map()
 
 #endif //EPOLLLEARN_ERRORMAP_H

@@ -4,7 +4,7 @@
 // $desc
 //
 
-#include "Utils.h"
+#include "utils.h"
 
 void check_print_abt(int res, const char *msg, bool line) {
     check_print(res, msg, line);
@@ -20,8 +20,8 @@ void check_print(int res, const char *msg, bool line) {
         } else {
             fprintf(stderr, "%s", msg);
         }
-        if (error_map.find(errno) != error_map.end()) {
-            fprintf(stderr, "%s\n", error_map[errno].c_str());
+        if (errmap.find(errno) != errmap.end()) {
+            fprintf(stderr, "%s\n", errmap[errno].c_str());
         }
     }
 }

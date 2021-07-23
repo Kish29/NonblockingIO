@@ -10,9 +10,9 @@
 #include "termios.h"
 
 // cbreak模式的终端，每次输入仅一个字符
-class CBreakTerm {
+class cbreak_term {
 public:
-    explicit CBreakTerm(int _infd, bool _perror = false) : perror_(_perror), infd_(_infd) {
+    explicit cbreak_term(int _infd, bool _perror = false) : perror_(_perror), infd_(_infd) {
         init();
     }
 

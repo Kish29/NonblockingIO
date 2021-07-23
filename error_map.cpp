@@ -4,12 +4,12 @@
 // $desc
 //
 
-#include "ErrorMap.h"
+#include "error_map.h"
 
-ErrorMap *ErrorMap::instance_ = nullptr;
-std::mutex ErrorMap::mutex_{};
+error_map *error_map::instance_ = nullptr;
+std::mutex error_map::mutex_{};
 
-ErrorMap::ErrorMap() {
+error_map::error_map() {
     error_map_.insert(std::make_pair(EPERM, "EPERM: Operation not permitted"));
     error_map_.insert(std::make_pair(EPERM, "EPERM: Operation not permitted"));
     error_map_.insert(std::make_pair(ENOENT, "ENOENT: No such file or directory"));

@@ -5,12 +5,12 @@ set(CMAKE_CXX_STANDARD 14)
 
 set(
         SRCS
-        Main.cpp
-        AsyncSigIO.cpp
-        CBreakTerm.cpp
-        Epoll.cpp
-        ErrorMap.cpp
-        Utils.cpp
+        main.cpp
+        async_sigio.cpp
+        cbreak_term.cpp
+        epoll_wrapper.cpp
+        error_map.cpp
+        utils.cpp
 )
 
 set(CMAKE_CXX_FLAGS -lpthread)
