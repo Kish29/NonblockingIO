@@ -21,13 +21,9 @@ public:
 
     explicit epoll_wrapper(bool _perror = true) : perror_(_perror) {
         epoll_fd_ = epoll_create1(O_CLOEXEC);
-        if (perror_) {
-            check_print_abt(epoll_fd_, "epoll_create() failed!");
-        }
+        CHECK_PERROR_ABT(epoll_fd_, "epoll_create() failed!")
         int res = fcntl(epoll_fd_, F_SETFL, O_NONBLOCK);
-        if (perror_) {
-            check_print(res, "fcntl: set O_NONBLOCK failed!");
-        }
+        CHECK_PERROR(res, "fcntl: set O_NONBLOCK failed!")
     }
 
     ~epoll_wrapper() {

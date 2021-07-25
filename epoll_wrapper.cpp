@@ -12,9 +12,7 @@ int epoll_wrapper::add_event(int fd, int event, epoll_wrapper::epoll_event_callb
     ev.events = event | EPOLLET;
     ev.data.fd = fd;
     int res = epoll_ctl(epoll_fd_, EPOLL_CTL_ADD, fd, &ev);
-    if (perror_) {
-        check_print(res, "epoll_ctl: ADD failed!\n");
-    }
+    CHECK_PERROR(res, "epoll_ctl: ADD failed!\n")
     callbacks_.insert(std::make_pair(fd, std::move(callback)));
     events_.insert(std::make_pair(fd, ev));
     return 0;
@@ -27,10 +25,7 @@ int epoll_wrapper::modify_event(int fd, int event) {
     }
     events_.at(fd).events = event | EPOLLET;
     int res = epoll_ctl(epoll_fd_, EPOLL_CTL_MOD, fd, &events_.at(fd));
-    if (perror_) {
-        check_print(res, "epoll_ctl: MOD failed!");
-        return -1;
-    }
+    CHECK_PERROR(res, "epoll_ctl: MOD failed!")
     return 0;
 }
 
@@ -40,10 +35,7 @@ int epoll_wrapper::delete_event(int fd) {
         return -1;
     }
     int res = epoll_ctl(epoll_fd_, EPOLL_CTL_DEL, fd, nullptr);
-    if (perror_) {
-        check_print(res, "epoll_ctl: DEL failed!");
-        return -1;
-    }
+    CHECK_PERROR(res, "epoll_ctl: DEL failed!")
     callbacks_.erase(fd);
     events_.erase(fd);
     return 0;
@@ -51,9 +43,7 @@ int epoll_wrapper::delete_event(int fd) {
 
 void epoll_wrapper::poll_event(int timeout = 0) {
     int readyn = epoll_wait(epoll_fd_, evs_poll, MAX_EVENTS, timeout);
-    if (perror_) {
-        check_print(readyn, "epoll_wait: error");
-    }
+    CHECK_PERROR(readyn, "epoll_wait: error")
     if (readyn == -1) {
         return;
     }
