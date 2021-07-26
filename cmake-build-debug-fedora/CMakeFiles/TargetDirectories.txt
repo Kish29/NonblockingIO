@@ -1,6 +1,0 @@
-/tmp/epoll_test/cmake-build-debug-fedora/CMakeFiles/rebuild_cache.dir
-/tmp/epoll_test/cmake-build-debug-fedora/CMakeFiles/edit_cache.dir
-/tmp/epoll_test/cmake-build-debug-fedora/CMakeFiles/example_tcpclient.dir
-/tmp/epoll_test/cmake-build-debug-fedora/CMakeFiles/example_tcpserver.dir
-/tmp/epoll_test/cmake-build-debug-fedora/CMakeFiles/EpollLearn.dir
-/tmp/epoll_test/cmake-build-debug-fedora/CMakeFiles/libepoll.dir
