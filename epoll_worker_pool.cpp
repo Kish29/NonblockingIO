@@ -74,6 +74,7 @@ void *epoll_worker::worker_routine(void *instance) {
 //                    inst->master_->condition_.wait();
                 }
             }
+            printf("worker do poll\n");
             inst->poller_.poll_event(inst->poll_timeout_);
         }
     }
