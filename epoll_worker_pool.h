@@ -45,15 +45,24 @@ public:
         poll_timeout_ = timeout;
     }
 
+    void setname(const std::string &name) {
+        name_ = name;
+    }
+
+    void print_info(const char *msg) {
+        printf("%s: %s", name_.c_str(), msg);
+    }
+
 private:
     epoll_wrapper poller_;
     epoll_worker_pool *master_;
+    std::string name_;
     pthread_t thread_id_{};
     bool started_{};
     int poll_timeout_{EPOLL_WAIT_TIME};
 
 private:
-    static void *worker_routine(void *instance);
+    [[noreturn]]static void *worker_routine(void *instance);
 
 private:
     friend class epoll_worker_pool;
@@ -67,7 +76,7 @@ public:
     void startup();
 
     // 提交一个新的连接事件
-    void submit(int fd, int events, bool nonblocking = true);
+    void submit(int fd, uint32_t events, bool nonblocking = true);
 
     ~epoll_worker_pool() override {
         delete[] workers_;

@@ -4,10 +4,11 @@
 // $desc
 //
 
+#include <cstdint>
 #include "epoll_wrapper.h"
 
 
-int epoll_wrapper::add_event(int fd, int event, bool ignore_err) {
+int epoll_wrapper::add_event(int fd, uint32_t event, bool ignore_err) {
     struct epoll_event ev{};
     ev.events = event | EPOLLET;
     ev.data.fd = fd;

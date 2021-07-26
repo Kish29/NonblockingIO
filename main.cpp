@@ -114,7 +114,7 @@ void epoll_pipe(int argc, char *argv[]) {
         check_print_abt(fd, "open file descriptor failed!");
         printf("open %s on %d\n", argv[i], fd);
         // 有数据输入，边缘触发
-        epoll.add_event(fd, EPOLLIN | EPOLLET);
+        epoll.add_event(fd, (uint32_t)(EPOLLIN | EPOLLET));
     }
     open_fd = argc - 1;
     pthread_t t{};

@@ -40,7 +40,7 @@ public:
 
     // fd不能是普通文件的描述符或者目录的描述符
     // 可以是管道、消息队列、FIFO、socket、终端、epoll
-    int add_event(int fd, int event, bool ignore_err = false);
+    int add_event(int fd, uint32_t event, bool ignore_err = false);
 
     int modify_event(int fd, int event);
 

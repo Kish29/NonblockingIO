@@ -4,6 +4,7 @@
 // $desc
 //
 
+#include <cstdint>
 #include "epoll_worker_pool.h"
 
 epoll_worker_pool::epoll_worker_pool(
@@ -17,6 +18,7 @@ epoll_worker_pool::epoll_worker_pool(
     for (int i = 0; i < worker_num_; ++i) {
 //        workers_[i] = std::make_shared<epoll_worker>(shared_from_this());
         workers_[i] = std::make_shared<epoll_worker>(this, callback_);
+        workers_[i]->setname(std::string("worker-thread-") + std::to_string(i));
     }
 }
 
@@ -30,7 +32,7 @@ void epoll_worker_pool::startup() {
     }
 }
 
-void epoll_worker_pool::submit(int fd, int events, bool nonblocking) {
+void epoll_worker_pool::submit(int fd, uint32_t events, bool nonblocking) {
     if (nonblocking) {
         // 查询非阻塞
         set_fd_non_block(fd);
@@ -63,21 +65,20 @@ void *epoll_worker::worker_routine(void *instance) {
         while (true) {
             {
                 worker_lockguard lck(inst->master_->locker_);
-                if (!inst->master_->event_storage_.empty()) {
-                    printf("queue is not empty\n");
-                    auto ev = inst->master_->event_storage_.front();
-                    inst->master_->event_storage_.pop();
-                    inst->poller_.add_event(ev.data.fd, ev.events);
-                } else {
-                    printf("queue is empty, wait...\n");
-                    inst->master_->condition_.wait_for(1);
-//                    inst->master_->condition_.wait();
+                if (inst->master_->event_storage_.empty()) {
+                    inst->print_info("queue is empty, wait...\n");
+//                    inst->master_->condition_.wait_for(1);
+                    inst->master_->condition_.wait();
                 }
+                inst->print_info("queue is not empty now\n");
+                auto ev = inst->master_->event_storage_.front();
+                inst->master_->event_storage_.pop();
+                inst->poller_.add_event(ev.data.fd, ev.events);
             }
-            printf("worker do poll\n");
+            inst->print_info("worker do poll\n");
             inst->poller_.poll_event(inst->poll_timeout_);
         }
     }
-    return nullptr;
+//    return nullptr;
 }
 

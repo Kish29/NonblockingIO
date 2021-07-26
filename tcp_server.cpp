@@ -68,7 +68,7 @@ void tcp_server::startup() {
         server_address_.sin_addr.s_addr = inet_addr(host_);
     }
     server_address_.sin_port = htons(port_);
-    int res = bind(server_sockfd_, (sockaddr *) &server_address_, sizeof server_address_);
+    int res = bind(server_sockfd_, (sockaddr * ) & server_address_, sizeof server_address_);
     CHECK_PERROR_ABT(res, "Server bind address failed!")
     res = set_fd_non_block(server_sockfd_);
     CHECK_PERROR_ABT(res, "Server set non_blocking failed!")
@@ -84,12 +84,11 @@ void tcp_server::startup() {
     // 在外部声明以方便资源重复使用
     sockaddr_in client_address{};
     socklen_t claddr_len = sizeof client_address;
-    int event = EPOLLIN | EPOLLET | EPOLLHUP | EPOLLERR;
     epoll_wrapper poller_for_connect([&](const epoll_event *event, int size) -> void {
         for (int i = 0; i < size; ++i) {
             // 表明有新的连接到来，并且没有超过服务器同时连接的最大数量
             if ((event[i].events & EPOLLIN) && connected_num_ < SERVER_MAX_CONNECTION) {
-                int client_fd = accept(server_sockfd_, (sockaddr *) &client_address, &claddr_len);
+                int client_fd = accept(server_sockfd_, (sockaddr * ) & client_address, &claddr_len);
                 if (client_fd > 0) {
                     // 向worker池注册一个连接事件
                     struct client_info info{};
@@ -111,7 +110,8 @@ void tcp_server::startup() {
             }
         }
     });
-    poller_for_connect.add_event(server_sockfd_, event);
+    uint32_t conn_event = EPOLLIN | EPOLLET | EPOLLHUP | EPOLLERR;
+    poller_for_connect.add_event(server_sockfd_, conn_event);
     while (true) {
         printf("Server use epoll to poll new connection...\n");
         poller_for_connect.poll_event(EPOLL_WAIT_TIME);
