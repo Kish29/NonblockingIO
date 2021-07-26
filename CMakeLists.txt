@@ -12,8 +12,9 @@ set(
         utils.cpp
         tcp_server.cpp
         tcp_client.cpp
-        epoll_worker.cpp
         epoll_worker_pool.cpp
+        worker_sync.cpp
+        no_copyable.h
 )
 
 add_library(libepoll ${SRCS})

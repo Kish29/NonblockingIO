@@ -1,0 +1,1 @@
+/usr/bin/c++ -lpthread -g CMakeFiles/EpollLearn.dir/main.cpp.o -o EpollLearn  liblibepoll.a 

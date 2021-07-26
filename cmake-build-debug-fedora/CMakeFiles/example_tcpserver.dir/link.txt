@@ -1,0 +1,1 @@
+/usr/bin/c++ -lpthread -g CMakeFiles/example_tcpserver.dir/example_tcpserver.cpp.o -o example_tcpserver  liblibepoll.a -lpthread 

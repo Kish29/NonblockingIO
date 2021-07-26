@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="EpollLearn"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/tmp/epoll_test/cmake-build-debug-fedora"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j2 -f &quot;/tmp/epoll_test/cmake-build-debug-fedora/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/gmake -j2 -f &quot;/tmp/epoll_test/cmake-build-debug-fedora/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j2 -f &quot;/tmp/epoll_test/cmake-build-debug-fedora/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j2 -f &quot;/tmp/epoll_test/cmake-build-debug-fedora/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/tmp/epoll_test/cmake-build-debug-fedora"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j2 -f &quot;/tmp/epoll_test/cmake-build-debug-fedora/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/gmake -j2 -f &quot;/tmp/epoll_test/cmake-build-debug-fedora/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j2 -f &quot;/tmp/epoll_test/cmake-build-debug-fedora/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j2 -f &quot;/tmp/epoll_test/cmake-build-debug-fedora/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/tmp/epoll_test/cmake-build-debug-fedora"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j2 -f &quot;/tmp/epoll_test/cmake-build-debug-fedora/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/gmake -j2 -f &quot;/tmp/epoll_test/cmake-build-debug-fedora/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j2 -f &quot;/tmp/epoll_test/cmake-build-debug-fedora/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j2 -f &quot;/tmp/epoll_test/cmake-build-debug-fedora/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="example_tcpclient">
+				<Option output="/tmp/epoll_test/cmake-build-debug-fedora/example_tcpclient" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/epoll_test/cmake-build-debug-fedora"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/aarch64-redhat-linux/10/../../../../include/c++/10"/>
+					<Add directory="/usr/lib/gcc/aarch64-redhat-linux/10/../../../../include/c++/10/aarch64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/aarch64-redhat-linux/10/../../../../include/c++/10/backward"/>
+					<Add directory="/usr/lib/gcc/aarch64-redhat-linux/10/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j2 -f &quot;/tmp/epoll_test/cmake-build-debug-fedora/Makefile&quot;  VERBOSE=1 example_tcpclient"/>
+					<CompileFile command="/usr/bin/gmake -j2 -f &quot;/tmp/epoll_test/cmake-build-debug-fedora/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j2 -f &quot;/tmp/epoll_test/cmake-build-debug-fedora/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j2 -f &quot;/tmp/epoll_test/cmake-build-debug-fedora/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="example_tcpclient/fast">
+				<Option output="/tmp/epoll_test/cmake-build-debug-fedora/example_tcpclient" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/epoll_test/cmake-build-debug-fedora"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/aarch64-redhat-linux/10/../../../../include/c++/10"/>
+					<Add directory="/usr/lib/gcc/aarch64-redhat-linux/10/../../../../include/c++/10/aarch64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/aarch64-redhat-linux/10/../../../../include/c++/10/backward"/>
+					<Add directory="/usr/lib/gcc/aarch64-redhat-linux/10/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j2 -f &quot;/tmp/epoll_test/cmake-build-debug-fedora/Makefile&quot;  VERBOSE=1 example_tcpclient/fast"/>
+					<CompileFile command="/usr/bin/gmake -j2 -f &quot;/tmp/epoll_test/cmake-build-debug-fedora/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j2 -f &quot;/tmp/epoll_test/cmake-build-debug-fedora/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j2 -f &quot;/tmp/epoll_test/cmake-build-debug-fedora/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="example_tcpserver">
+				<Option output="/tmp/epoll_test/cmake-build-debug-fedora/example_tcpserver" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/epoll_test/cmake-build-debug-fedora"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/aarch64-redhat-linux/10/../../../../include/c++/10"/>
+					<Add directory="/usr/lib/gcc/aarch64-redhat-linux/10/../../../../include/c++/10/aarch64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/aarch64-redhat-linux/10/../../../../include/c++/10/backward"/>
+					<Add directory="/usr/lib/gcc/aarch64-redhat-linux/10/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j2 -f &quot;/tmp/epoll_test/cmake-build-debug-fedora/Makefile&quot;  VERBOSE=1 example_tcpserver"/>
+					<CompileFile command="/usr/bin/gmake -j2 -f &quot;/tmp/epoll_test/cmake-build-debug-fedora/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j2 -f &quot;/tmp/epoll_test/cmake-build-debug-fedora/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j2 -f &quot;/tmp/epoll_test/cmake-build-debug-fedora/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="example_tcpserver/fast">
+				<Option output="/tmp/epoll_test/cmake-build-debug-fedora/example_tcpserver" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/epoll_test/cmake-build-debug-fedora"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/aarch64-redhat-linux/10/../../../../include/c++/10"/>
+					<Add directory="/usr/lib/gcc/aarch64-redhat-linux/10/../../../../include/c++/10/aarch64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/aarch64-redhat-linux/10/../../../../include/c++/10/backward"/>
+					<Add directory="/usr/lib/gcc/aarch64-redhat-linux/10/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j2 -f &quot;/tmp/epoll_test/cmake-build-debug-fedora/Makefile&quot;  VERBOSE=1 example_tcpserver/fast"/>
+					<CompileFile command="/usr/bin/gmake -j2 -f &quot;/tmp/epoll_test/cmake-build-debug-fedora/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j2 -f &quot;/tmp/epoll_test/cmake-build-debug-fedora/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j2 -f &quot;/tmp/epoll_test/cmake-build-debug-fedora/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="EpollLearn">
+				<Option output="/tmp/epoll_test/cmake-build-debug-fedora/EpollLearn" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/epoll_test/cmake-build-debug-fedora"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/aarch64-redhat-linux/10/../../../../include/c++/10"/>
+					<Add directory="/usr/lib/gcc/aarch64-redhat-linux/10/../../../../include/c++/10/aarch64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/aarch64-redhat-linux/10/../../../../include/c++/10/backward"/>
+					<Add directory="/usr/lib/gcc/aarch64-redhat-linux/10/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j2 -f &quot;/tmp/epoll_test/cmake-build-debug-fedora/Makefile&quot;  VERBOSE=1 EpollLearn"/>
+					<CompileFile command="/usr/bin/gmake -j2 -f &quot;/tmp/epoll_test/cmake-build-debug-fedora/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j2 -f &quot;/tmp/epoll_test/cmake-build-debug-fedora/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j2 -f &quot;/tmp/epoll_test/cmake-build-debug-fedora/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="EpollLearn/fast">
+				<Option output="/tmp/epoll_test/cmake-build-debug-fedora/EpollLearn" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/epoll_test/cmake-build-debug-fedora"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/aarch64-redhat-linux/10/../../../../include/c++/10"/>
+					<Add directory="/usr/lib/gcc/aarch64-redhat-linux/10/../../../../include/c++/10/aarch64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/aarch64-redhat-linux/10/../../../../include/c++/10/backward"/>
+					<Add directory="/usr/lib/gcc/aarch64-redhat-linux/10/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j2 -f &quot;/tmp/epoll_test/cmake-build-debug-fedora/Makefile&quot;  VERBOSE=1 EpollLearn/fast"/>
+					<CompileFile command="/usr/bin/gmake -j2 -f &quot;/tmp/epoll_test/cmake-build-debug-fedora/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j2 -f &quot;/tmp/epoll_test/cmake-build-debug-fedora/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j2 -f &quot;/tmp/epoll_test/cmake-build-debug-fedora/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="libepoll">
+				<Option output="/tmp/epoll_test/cmake-build-debug-fedora/liblibepoll.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/epoll_test/cmake-build-debug-fedora"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/aarch64-redhat-linux/10/../../../../include/c++/10"/>
+					<Add directory="/usr/lib/gcc/aarch64-redhat-linux/10/../../../../include/c++/10/aarch64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/aarch64-redhat-linux/10/../../../../include/c++/10/backward"/>
+					<Add directory="/usr/lib/gcc/aarch64-redhat-linux/10/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j2 -f &quot;/tmp/epoll_test/cmake-build-debug-fedora/Makefile&quot;  VERBOSE=1 libepoll"/>
+					<CompileFile command="/usr/bin/gmake -j2 -f &quot;/tmp/epoll_test/cmake-build-debug-fedora/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j2 -f &quot;/tmp/epoll_test/cmake-build-debug-fedora/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j2 -f &quot;/tmp/epoll_test/cmake-build-debug-fedora/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="libepoll/fast">
+				<Option output="/tmp/epoll_test/cmake-build-debug-fedora/liblibepoll.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/epoll_test/cmake-build-debug-fedora"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/aarch64-redhat-linux/10/../../../../include/c++/10"/>
+					<Add directory="/usr/lib/gcc/aarch64-redhat-linux/10/../../../../include/c++/10/aarch64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/aarch64-redhat-linux/10/../../../../include/c++/10/backward"/>
+					<Add directory="/usr/lib/gcc/aarch64-redhat-linux/10/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j2 -f &quot;/tmp/epoll_test/cmake-build-debug-fedora/Makefile&quot;  VERBOSE=1 libepoll/fast"/>
+					<CompileFile command="/usr/bin/gmake -j2 -f &quot;/tmp/epoll_test/cmake-build-debug-fedora/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j2 -f &quot;/tmp/epoll_test/cmake-build-debug-fedora/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j2 -f &quot;/tmp/epoll_test/cmake-build-debug-fedora/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/tmp/epoll_test/async_sigio.cpp">
+			<Option target="libepoll"/>
+		</Unit>
+		<Unit filename="/tmp/epoll_test/async_sigio.h">
+			<Option target="libepoll"/>
+		</Unit>
+		<Unit filename="/tmp/epoll_test/cbreak_term.cpp">
+			<Option target="libepoll"/>
+		</Unit>
+		<Unit filename="/tmp/epoll_test/cbreak_term.h">
+			<Option target="libepoll"/>
+		</Unit>
+		<Unit filename="/tmp/epoll_test/epoll_worker_pool.cpp">
+			<Option target="libepoll"/>
+		</Unit>
+		<Unit filename="/tmp/epoll_test/epoll_worker_pool.h">
+			<Option target="libepoll"/>
+		</Unit>
+		<Unit filename="/tmp/epoll_test/epoll_wrapper.cpp">
+			<Option target="libepoll"/>
+		</Unit>
+		<Unit filename="/tmp/epoll_test/epoll_wrapper.h">
+			<Option target="libepoll"/>
+		</Unit>
+		<Unit filename="/tmp/epoll_test/error_map.cpp">
+			<Option target="libepoll"/>
+		</Unit>
+		<Unit filename="/tmp/epoll_test/error_map.h">
+			<Option target="libepoll"/>
+		</Unit>
+		<Unit filename="/tmp/epoll_test/example_tcpclient.cpp">
+			<Option target="example_tcpclient"/>
+		</Unit>
+		<Unit filename="/tmp/epoll_test/example_tcpserver.cpp">
+			<Option target="example_tcpserver"/>
+		</Unit>
+		<Unit filename="/tmp/epoll_test/main.cpp">
+			<Option target="EpollLearn"/>
+		</Unit>
+		<Unit filename="/tmp/epoll_test/no_copyable.h">
+			<Option target="libepoll"/>
+		</Unit>
+		<Unit filename="/tmp/epoll_test/tcp_client.cpp">
+			<Option target="libepoll"/>
+		</Unit>
+		<Unit filename="/tmp/epoll_test/tcp_client.h">
+			<Option target="libepoll"/>
+		</Unit>
+		<Unit filename="/tmp/epoll_test/tcp_server.cpp">
+			<Option target="libepoll"/>
+		</Unit>
+		<Unit filename="/tmp/epoll_test/tcp_server.h">
+			<Option target="libepoll"/>
+		</Unit>
+		<Unit filename="/tmp/epoll_test/utils.cpp">
+			<Option target="libepoll"/>
+		</Unit>
+		<Unit filename="/tmp/epoll_test/utils.h">
+			<Option target="libepoll"/>
+		</Unit>
+		<Unit filename="/tmp/epoll_test/worker_sync.cpp">
+			<Option target="libepoll"/>
+		</Unit>
+		<Unit filename="/tmp/epoll_test/worker_sync.h">
+			<Option target="libepoll"/>
+		</Unit>
+		<Unit filename="/tmp/epoll_test/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

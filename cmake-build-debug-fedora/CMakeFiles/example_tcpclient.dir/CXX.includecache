@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/tmp/tmp.KnVWQpQBTf/example_tcpclient.cpp
+fcntl.h
+/tmp/tmp.KnVWQpQBTf/fcntl.h
+unistd.h
+/tmp/tmp.KnVWQpQBTf/unistd.h
+iostream
+/tmp/tmp.KnVWQpQBTf/iostream
+no_copyable.h
+/tmp/tmp.KnVWQpQBTf/no_copyable.h
+sys/socket.h
+/tmp/tmp.KnVWQpQBTf/sys/socket.h
+tcp_client.h
+/tmp/tmp.KnVWQpQBTf/tcp_client.h
+queue
+/tmp/tmp.KnVWQpQBTf/queue
+memory
+/tmp/tmp.KnVWQpQBTf/memory
+
+/tmp/tmp.KnVWQpQBTf/no_copyable.h
+
+/tmp/tmp.KnVWQpQBTf/tcp_client.h
+sys/socket.h
+/tmp/tmp.KnVWQpQBTf/sys/socket.h
+arpa/inet.h
+/tmp/tmp.KnVWQpQBTf/arpa/inet.h
+unistd.h
+/tmp/tmp.KnVWQpQBTf/unistd.h
+

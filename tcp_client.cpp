@@ -5,6 +5,7 @@
 //
 
 #include "tcp_client.h"
+#include "cassert"
 #include "utils.h"
 #include "cstring"
 
@@ -40,22 +41,10 @@ void tcp_client::parse_serverarg(uint16_t port, const char *svr_addr) {
     cnn_svr_addr.sin_port = htons(port);
     // inet_pton或inet_addr都可以，只不过inet_pton只支持AF_INET
     cnn_svr_addr.sin_addr.s_addr = inet_addr(strcmp(svr_addr, "localhost") == 0 ? "127.0.0.1" : svr_addr);
-    cnn_svr_set = true;
     /*if (strcmp(_srv_addr, "localhost") == 0) {
         cnn_svr_addr.sin_addr.s_addr = htonl(INADDR_LOOPBACK);
     } else {
         inet_pton(AF_INET, _srv_addr, &cnn_svr_addr.sin_addr);
     }*/
+    cnn_svr_set = true;
 }
-
-
-/*int flag = fcntl(client_sockfd, F_GETFL);
-if (flag == -1) {
-    perror("client socket get fd flag failed!\n");
-    exit(EXIT_FAILURE);
-}
-flag |= O_NONBLOCK;
-if (fcntl(client_sockfd, F_SETFL, flag) == -1) {
-    perror("client socket set non-blocking flag failed!\n");
-    exit(EXIT_FAILURE);
-}*/

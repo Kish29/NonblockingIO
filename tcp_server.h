@@ -15,11 +15,15 @@
 #include "arpa/inet.h"
 #include "memory"
 
+struct client_info {
+    const char *host{};
+    int port{};
+};
+
 // size代表server能同时处理多少个连接
 class tcp_server {
 public:
-    explicit tcp_server(uint16_t _port, const char *_host = "0.0.0.0")
-            : port_(_port), host_(_host) {}
+    explicit tcp_server(uint16_t _port, const char *_host = "0.0.0.0");
 
     ~tcp_server() {
         close(server_sockfd_);
@@ -28,13 +32,18 @@ public:
     void startup();
 
 private:
-    static const uint32_t EPOLL_WAIT_TIME = 10000;
+    // linux内核为我们维护的accept_queue的最大值也是2048
+    // https://www.cnblogs.com/qiumingcheng/p/9492962.html
+    // linux内核通过listen传入的backlog和/proc/sys/net/core/somaxconn取二者的较小值
+    static const uint32_t SERVER_MAX_CONNECTION = 2048;
+
     uint16_t port_;
-    const char *host_{};
+    const char *host_;
     int server_sockfd_{-1};
+    uint32_t connected_num_{0};
     sockaddr_in server_address_{};
-    epoll_wrapper poller_for_connect{};
-    epoll_worker_pool worker_pool{};
+    std::map<int, client_info> client_infos{};
+    epoll_worker_pool worker_pool;
 
 private:
     [[noreturn]]void poll_for_connect();
