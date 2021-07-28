@@ -15,11 +15,13 @@ class error_map {
 public:
     static error_map *instance() {
         if (instance_ == nullptr) {
-            std::unique_lock<std::mutex> lck(mutex_);
-            if (instance_ == nullptr) {
-                instance_ = new error_map;
+            {
+                std::unique_lock<std::mutex> lck(mutex_);
+                if (instance_ == nullptr) {
+                    instance_ = new error_map;
+                }
+                lck.unlock();
             }
-            lck.unlock();
         }
         return instance_;
     }
@@ -33,11 +35,15 @@ public:
     error_map &operator=(const error_map &other) = delete;
 
 private:
+
+    std::map<int, std::string> error_map_{};
+
+protected:
     error_map();
 
+private:
     static std::mutex mutex_;
     static error_map *instance_;
-    std::map<int, std::string> error_map_{};
 };
 
 #define errmap error_map::instance()->get_error_map()

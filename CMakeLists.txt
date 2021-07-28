@@ -10,16 +10,20 @@ set(
         epoll_wrapper.cpp
         error_map.cpp
         utils.cpp
+        httpcode_map.cpp
         tcp_server.cpp
         tcp_client.cpp
-        epoll_worker_pool.cpp
-        worker_sync.cpp
+        tcp_worker_pool.cpp
+        http_parser.cpp
+        thread_pool.cpp
         no_copyable.h
 )
 
 add_library(libepoll ${SRCS})
 
-set(CMAKE_CXX_FLAGS -lpthread)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3 -Wall")
+set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -O3 -g -Wall -D__DEBUG__")
+#set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -O3 -g -Wall")
 
 macro(add_example_target TEST_SRC)
     add_executable(example_${TEST_SRC} example_${TEST_SRC}.cpp)

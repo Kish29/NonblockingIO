@@ -19,8 +19,8 @@ tcp_client::tcp_client(uint16_t _port, const char *_srv_addr) : tcp_client() {
 }
 
 int tcp_client::cnnto_server() const {
-    if (!cnn_svr_set) {
-        printf("Server address and port must be set first!\n");
+    if (!cnn_svr_set_) {
+        fprintf(stderr, "Server address and port must be set first!\n");
         return -1;
     }
     int res = connect(client_sockfd_, (sockaddr *) &cnn_svr_addr, sizeof cnn_svr_addr);
@@ -46,5 +46,5 @@ void tcp_client::parse_serverarg(uint16_t port, const char *svr_addr) {
     } else {
         inet_pton(AF_INET, _srv_addr, &cnn_svr_addr.sin_addr);
     }*/
-    cnn_svr_set = true;
+    cnn_svr_set_ = true;
 }

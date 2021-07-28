@@ -16,7 +16,8 @@ TEST_TARGET1	:= example_tcpserver
 TEST_TARGET2	:= example_tcpclient
 CXX			:= g++
 LIBS		:= -lpthread
-CFLAGS		:= -std=c++11 -g -Wall -O3
+# -D宏定义__DEBUG__，控制编译分支
+CFLAGS		:= -std=c++11 -g -Wall -O3 -D__DEBUG__
 CXXFLAGS	:= $(CFLAGS)
 
 .PHONY	: all clean

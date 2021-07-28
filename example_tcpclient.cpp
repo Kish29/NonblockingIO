@@ -14,9 +14,24 @@ void client_test(int argc, char *argv[]);
 
 void other_test();
 
+void *thread_routine(void *) {
+    printf("thread pid is %d\n", gettid());
+    pthread_exit(nullptr);
+}
+
+void pthread_pid_test() {
+    pthread_t ids[4];
+    for (int i = 0; i < 4; ++i) {
+        pthread_create(&ids[i], nullptr, thread_routine, nullptr);
+        pthread_join(ids[i], nullptr);
+    }
+}
+
 int main(int argc, char *argv[]) {
     client_test(argc, argv);
 //    other_test();
+//    printf("father pid is %d\n", gettid());
+//    pthread_pid_test();
     return 0;
 }
 

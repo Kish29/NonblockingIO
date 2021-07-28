@@ -17,9 +17,6 @@ int epoll_wrapper::add_event(int fd, uint32_t event, bool ignore_err) {
         return 0;
     }
     CHECK_PERROR(res, "epoll_ctl: ADD failed!")
-    if (res != -1) {
-        fds_.emplace(fd);
-    }
     return res;
 }
 
@@ -29,12 +26,9 @@ int epoll_wrapper::modify_event(int fd, int event) {
     return add_event(fd, event, true);
 }
 
-int epoll_wrapper::delete_event(int fd) {
+int epoll_wrapper::delete_event(int fd) const {
     int res = epoll_ctl(epoll_fd_, EPOLL_CTL_DEL, fd, nullptr);
     CHECK_PERROR(res, "epoll_ctl: DEL failed!")
-    if (res != -1) {
-        fds_.erase(fd);
-    }
     return res;
 }
 

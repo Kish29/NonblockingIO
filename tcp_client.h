@@ -27,7 +27,7 @@ public:
 
 private:
     int client_sockfd_{};
-    bool cnn_svr_set{};
+    bool cnn_svr_set_{};
     // 要连接的服务端地址
     sockaddr_in cnn_svr_addr{};
 
