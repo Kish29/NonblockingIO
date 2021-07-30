@@ -26,7 +26,8 @@ public:
     typedef std::function<void(const struct epoll_event *, int size)> event_callback_func;
 
     epoll_wrapper() {
-        epoll_fd_ = epoll_create1(O_CLOEXEC);
+        // 子进程不继承父进程fd
+        epoll_fd_ = epoll_create1(EPOLL_CLOEXEC);
         CHECK_PERROR_ABT(epoll_fd_, "epoll_create() failed!")
         int res = fcntl(epoll_fd_, F_SETFL, O_NONBLOCK);
         CHECK_PERROR(res, "fcntl: set O_NONBLOCK failed!")

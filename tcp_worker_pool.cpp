@@ -83,7 +83,7 @@ void tcp_worker::handle_epollin(int client_sockfd) {
 
 void tcp_worker::handle_disconnect(int client_sockfd) {
     // 不需要加锁
-    if (client_infos.find(client_sockfd) != client_infos.end()) {
+    /*if (client_infos.find(client_sockfd) != client_infos.end()) {
         printf("Connection from %s:%d disconnected\n",
                client_infos[client_sockfd].host,
                client_infos[client_sockfd].port);
@@ -91,7 +91,7 @@ void tcp_worker::handle_disconnect(int client_sockfd) {
     }
     poller_.delete_event(client_sockfd);
     // 关闭连接
-    DISCONNECT(client_sockfd);
+    DISCONNECT(client_sockfd);*/
 }
 
 void tcp_worker::handle_error(int errcode, int client_sockfd) {
@@ -215,10 +215,12 @@ void tcp_worker_pool::submit(const client_info &info, bool nonblocking) {
         startup();
     }
     thread_pool::instance()->submit(nullptr, [&, info, nonblocking](const std::shared_ptr<void> &args) -> void {
-        if (nonblocking) {
+        /*if (nonblocking) {
             // 查询非阻塞
-            set_fd_non_block(info.eplev.data.fd);
-        }
+            if (set_fd_non_block(info.eplev.data.fd) == -1) {
+                perror("set nonblocking failed!");
+            }
+        }*/
         // 执行http解析
         auto body = std::string("<!DOCTYPE html>\n")
                     +
@@ -322,15 +324,19 @@ void tcp_worker_pool::submit(const client_info &info, bool nonblocking) {
                     +
                     "</html>";
         ssize_t readn = read(info.eplev.data.fd, TRD_RECV_BUF, BUFSIZ);
-        if (readn > 0) {
-            printf("and http request is: %s\n", TRD_RECV_BUF);
-            sprintf(TRD_SEND_BUF, "HTTP/1.1 200 OK\r\nContent-length: %zu\r\n\r\n", strlen(body.c_str()));
-            auto p = TRD_SEND_BUF + strlen(TRD_SEND_BUF);
-            strcpy(p, body.c_str());
-            send(info.eplev.data.fd, TRD_SEND_BUF, BUFSIZ, MSG_NOSIGNAL);
-        } else if (readn == 0) {
-            strcpy(TRD_SEND_BUF, "i will keep you connected\n");
-            send(info.eplev.data.fd, TRD_SEND_BUF, BUFSIZ, MSG_NOSIGNAL);
+        if (readn >= 0) {
+            if (readn > 0) {
+
+                printf("and http request is: %s\n", TRD_RECV_BUF);
+                sprintf(TRD_SEND_BUF, "HTTP/1.1 200 OK\r\nContent-length: %zu\r\n\r\n", strlen(body.c_str()));
+                auto p = TRD_SEND_BUF + strlen(TRD_SEND_BUF);
+                strcpy(p, body.c_str());
+                send(info.eplev.data.fd, TRD_SEND_BUF, BUFSIZ, MSG_NOSIGNAL);
+            } else {
+                strcpy(TRD_SEND_BUF, "i will keep you connected\n");
+                send(info.eplev.data.fd, TRD_SEND_BUF, BUFSIZ, MSG_NOSIGNAL);
+            }
+
         } else {
             perror("accept read error occurred!");
         }
