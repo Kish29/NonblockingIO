@@ -4,10 +4,10 @@
 // $desc
 //
 
-#include "CBreakTerm.h"
+#include "cbreak_term.h"
 #include "cstdio"
 
-int CBreakTerm::init() {
+int cbreak_term::init() {
     if (tcgetattr(infd_, &tmio_) == -1) {
         if (perror_) {
             fprintf(stderr, "tcgetattr(): get attributes failed\n");

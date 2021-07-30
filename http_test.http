@@ -1,0 +1,8 @@
+GET http://10.211.55.3:5555/hello
+Accept: application/json
+
+###
+GET http://www.baidu.com/
+Accept: application/json
+
+###
